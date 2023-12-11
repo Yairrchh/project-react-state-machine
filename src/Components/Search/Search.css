@@ -1,0 +1,37 @@
+.Search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Search-select {
+    font-size: 1rem;
+    margin: 16px 0;
+    border-radius: 8px;
+    padding: 8px;
+    border: none;
+}
+
+.Search-continue {
+    --s: 150px;
+    --b: 3px;     /* the border thickness*/
+    --g: 5px;    /* the gap */
+    --c: #4ECDC4; /* the color */
+
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0ch;
+    width: var(--s);
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(23, 168, 190, 0.8);
+    color: #000000;
+    font-size: 19px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.Search-continue:hover{
+    outline: var(--b) solid var(--c);
+    outline-offset: var(--g);
+}

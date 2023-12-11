@@ -1,0 +1,43 @@
+.Welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Welcome-title{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 30px;
+    margin: 0pc;
+}
+
+.Welcome-description{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: larger;
+    text-align: center;
+}
+
+.Welcome-start{
+    --s: 150px;
+    --b: 3px;     /* the border thickness*/
+    --g: 5px;    /* the gap */
+    --c: #4ECDC4; /* the color */
+
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0ch;
+    width: var(--s);
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(23, 168, 190, 0.8);
+    color: #000000;
+    font-size: 19px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.Welcome-start:hover{
+    outline: var(--b) solid var(--c);
+    outline-offset: var(--g);
+}
