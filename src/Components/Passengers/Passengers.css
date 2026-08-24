@@ -1,57 +1,129 @@
 .Passengers {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 0 8px;
-}
-
-.Passengers input {
-font-size: 1rem;
-margin: 16px 0;
-border-radius: 8px;
-padding: 8px;
-border: none;
-width: 100%;
-box-sizing: border-box;
-}
-
-.Passengers-buttons {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 16px;
-width: 100%;
-margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .Passengers-title {
-margin-bottom: 0px;
-}
-
-.Passengers-add, .Passengers-pay{
-    --s: 150px;
-    --b: 3px;     /* the border thickness*/
-    --g: 5px;    /* the gap */
-    --c: #4ECDC4; /* the color */
-
-    font-family: Arial, Helvetica, sans-serif;
-    border: 0ch;
-    width: var(--s);
-    padding: 5px;
-    border-radius: 10px;
-    background-color: rgba(23, 168, 190, 0.8);
-    color: #000000;
+    font-family: var(--font-display);
+    font-weight: 700;
     font-size: 19px;
+    color: var(--color-ink);
+    text-align: center;
+    margin: 0 0 16px;
+}
+
+.Passengers-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-paper-dim);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+}
+
+.Passengers-stepperLabel {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+}
+
+.Passengers-stepperControl {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.Passengers-stepperButton {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(32, 23, 53, 0.18);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
     cursor: pointer;
-    transition: .3s;
+    transition: border-color .18s ease, opacity .18s ease;
 }
 
-.Passengers-add:hover{
-    outline: var(--b) solid var(--c);
-    outline-offset: var(--g);
+.Passengers-stepperButton:hover:not(:disabled) {
+    border-color: var(--color-amber);
 }
 
-.Passengers-pay:hover{
-    outline: var(--b) solid var(--c);
-    outline-offset: var(--g);
+.Passengers-stepperButton:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.Passengers-stepperCount {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-ink);
+    min-width: 14px;
+    text-align: center;
+}
+
+.Passengers-list {
+    list-style: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.Passengers-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--color-paper-dim);
+    border-radius: 10px;
+    padding: 2px 14px;
+    border: 2px solid transparent;
+    transition: border-color .18s ease;
+}
+
+.Passengers-item:focus-within {
+    border-color: var(--color-amber);
+}
+
+.Passengers-itemIndex {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-amber-deep);
+    flex-shrink: 0;
+}
+
+.Passengers input.Passengers-input {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--color-ink);
+    background-color: transparent;
+    border: none;
+    padding: 12px 0;
+    box-sizing: border-box;
+}
+
+.Passengers input.Passengers-input:focus {
+    outline: none;
+}
+
+.Passengers-pay.btn-primary {
+    width: 100%;
+    box-sizing: border-box;
 }

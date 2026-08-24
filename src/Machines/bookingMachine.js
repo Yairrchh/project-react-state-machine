@@ -32,11 +32,14 @@ const fillCountries = {
 };
 
 const bookingMachine = createMachine({
-    id: "buy plane tickets",
+    id: "todoticketFlights",
     initial: "initial",
     context:{
         passengers: [],
         selectedCountry: '',
+        selectedPrice: 0,
+        selectedDate: '',
+        selectedTime: '',
         countries: [],
         error: '',
     },
@@ -52,6 +55,9 @@ const bookingMachine = createMachine({
                 target: 'passengers',
                 actions: assign({
                     selectedCountry: ({ event }) => event.selectedCountry,
+                    selectedPrice: ({ event }) => event.selectedPrice,
+                    selectedDate: ({ event }) => event.selectedDate,
+                    selectedTime: ({ event }) => event.selectedTime,
                 }),
             },
             CANCEL: "initial",
@@ -59,12 +65,6 @@ const bookingMachine = createMachine({
         ...fillCountries,
         },
         tickets: {
-                after: {
-                    5000: {
-                        target: 'initial',
-                        actions: 'cleanContext'
-                    }
-                },
                 on: {
                     FINISH: {
                         target: 'initial',
@@ -76,18 +76,15 @@ const bookingMachine = createMachine({
                     on: {
                             DONE: {
                                 target: 'tickets',
-                                guard: 'moreThanOnePassenger',
+                                guard: 'passengersValid',
+                                actions: assign({
+                                    passengers: ({ event }) => event.passengers,
+                                }),
                             },
                             CANCEL: {
                                 target: 'initial',
                                 actions: 'cleanContext',
                             },
-                            ADD: {
-                                target: 'passengers',
-                                actions: assign(
-                                ({context, event}) => context.passengers.push(event.newPassengers)
-                            )
-                        },
                     },
                 },
             },
@@ -96,12 +93,16 @@ const bookingMachine = createMachine({
             actions: {
                 cleanContext: assign({
                 selectedCountry: "",
+                selectedPrice: 0,
+                selectedDate: "",
+                selectedTime: "",
                 passengers: [],
                 }),
             },
             guards: {
-                moreThanOnePassenger: ({context}) => {
-                return context.passengers.length > 0;
+                passengersValid: ({ event }) => {
+                    return event.passengers.length > 0
+                        && event.passengers.every((name) => name.trim().length > 0);
                 }
         }
     }

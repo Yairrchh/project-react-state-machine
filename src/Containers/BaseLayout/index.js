@@ -4,17 +4,20 @@ import {bookingMachine} from '../../Machines/bookingMachine';
 import './BaseLayout.css'
 import { StepsLayout } from '../StepsLayout';
 import { Nav } from '../../Components/Nav';
+import { FlightProgress } from '../../Components/FlightProgress';
+import { SkyScene } from '../../Components/SkyScene';
 
 const BaseLayout = () => {
     const [state, send] = useMachine(bookingMachine);
 
-    console.log('nuestra maquina', state.value, state.context);
-
-
     return (
         <div className='BaseLayout'>
-            <Nav state={state} send={send}/>
-            <StepsLayout state={state} send={send}/>
+            <SkyScene />
+            <div className='BaseLayout-ticket'>
+                <Nav state={state} send={send}/>
+                <FlightProgress state={state}/>
+                <StepsLayout state={state} send={send}/>
+            </div>
         </div>
     );
 }

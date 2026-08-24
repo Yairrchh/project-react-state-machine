@@ -1,13 +1,87 @@
+:root {
+  /* dusk sky */
+  --color-navy-deep: #10162b;
+  --color-navy: #1b2340;
+  --color-violet: #3e2f63;
+
+  /* runway lights */
+  --color-amber: #f2a93b;
+  --color-amber-deep: #d98b1f;
+  --color-coral: #f2665a;
+  --color-coral-deep: #d94c3f;
+
+  /* ticket stock */
+  --color-paper: #fbf3e3;
+  --color-paper-dim: #f2e6cb;
+  --color-ink: #201735;
+  --color-ink-soft: rgba(32, 23, 53, 0.62);
+
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--color-navy-deep);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-mono);
+}
+
+.btn-primary {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  background-color: var(--color-amber);
+  border: none;
+  border-radius: 10px;
+  padding: 14px 26px;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  box-shadow: 0 6px 0 var(--color-amber-deep);
+}
+
+.btn-primary:hover {
+  background-color: #f5b95c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 var(--color-amber-deep);
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 var(--color-amber-deep);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.btn-secondary {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  background-color: transparent;
+  border: 2px solid var(--color-ink);
+  border-radius: 10px;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
 }

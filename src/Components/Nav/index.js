@@ -1,5 +1,5 @@
 import React from "react";
-import navImg from '../../assets/images/coldplay-concert-4.jpg'
+import { PlaneIcon } from "../Icons/PlaneIcon";
 import './Nav.css'
 
 const Nav = ({state, send}) => {
@@ -9,11 +9,16 @@ const Nav = ({state, send}) => {
 
     return (
         <nav className="Nav">
-            <figure className="figure-img"><img src={navImg} alt="img-nav"/></figure>
-            <h1 className="h1-nav">Todoticket 🎫</h1>
+            <div className="Nav-brand">
+                <span className="Nav-icon"><PlaneIcon size={18} /></span>
+                <div className="Nav-brandText">
+                    <span className="Nav-eyebrow">Reserva de vuelos</span>
+                    <h1 className="Nav-title">Todoticket</h1>
+                </div>
+            </div>
             {
                 !state.matches('initial') && !state.matches('tickets') &&
-                    <button onClick={goToWelcome} className="Nav-cancel button-secondary">Cancel the purchase</button>
+                    <button onClick={goToWelcome} className="Nav-cancel">Cancelar</button>
             }
         </nav>
     )

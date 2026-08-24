@@ -1,0 +1,29 @@
+.SkyScene {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.SkyScene-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.SkyScene-star {
+    fill: #ffffff;
+    opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .SkyScene-star {
+        animation: SkyScene-twinkle 3.6s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes SkyScene-twinkle {
+    from { opacity: 0.2; }
+    to { opacity: 0.95; }
+}

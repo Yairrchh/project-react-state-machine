@@ -8,9 +8,10 @@ const Welcome = ({send}) => {
 
     return (
         <div className="Welcome">
-            <p className="Welcome-title title">ColdPlay Tour concert</p>
-            <p className="Welcome-description description">Buy your ticket and meet one of the best bands of all time. Don't miss out on your ticket for this great party!</p>
-            <button onClick={startBooking} className="Welcome-start button">Start</button>
+            <h2 className="Welcome-title">Tu próximo destino está a un boleto de distancia</h2>
+            <p className="Welcome-description">Elige entre 14 destinos en América, agrega a tus acompañantes y recibe tu boleto al instante.</p>
+            <p className="Welcome-fare">Vuelos desde <span>$120</span></p>
+            <button onClick={startBooking} className="Welcome-start btn-primary">Buscar vuelos</button>
         </div>
     );
 };

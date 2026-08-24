@@ -1,37 +1,128 @@
 .Search {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Search-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    margin: 0 0 18px;
+}
+
+.Search-selectWrap {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 20px;
 }
 
 .Search-select {
-    font-size: 1rem;
-    margin: 16px 0;
-    border-radius: 8px;
-    padding: 8px;
-    border: none;
-}
-
-.Search-continue {
-    --s: 150px;
-    --b: 3px;     /* the border thickness*/
-    --g: 5px;    /* the gap */
-    --c: #4ECDC4; /* the color */
-
-    font-family: Arial, Helvetica, sans-serif;
-    border: 0ch;
-    width: var(--s);
-    padding: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--color-ink);
+    background-color: var(--color-paper-dim);
+    border: 2px solid rgba(32, 23, 53, 0.14);
     border-radius: 10px;
-    background-color: rgba(23, 168, 190, 0.8);
-    color: #000000;
-    font-size: 19px;
+    padding: 12px 40px 12px 16px;
     cursor: pointer;
-    transition: .3s;
+    transition: border-color .18s ease;
 }
 
-.Search-continue:hover{
-    outline: var(--b) solid var(--c);
-    outline-offset: var(--g);
+.Search-select:focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+    border-color: var(--color-amber);
+}
+
+.Search-selectIcon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-ink-soft);
+    font-size: 12px;
+}
+
+.Search-options {
+    list-style: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 18px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Search-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--color-paper-dim);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: border-color .18s ease, background-color .18s ease;
+}
+
+.Search-option:hover {
+    border-color: rgba(242, 169, 59, 0.5);
+}
+
+.Search-option:focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+}
+
+.Search-option--selected {
+    background-color: var(--color-paper);
+    border-color: var(--color-amber);
+}
+
+.Search-optionInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.Search-optionFare {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-ink);
+}
+
+.Search-optionDate {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+}
+
+.Search-optionPrice {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--color-ink);
+    white-space: nowrap;
+}
+
+.Search-option--selected .Search-optionPrice {
+    color: var(--color-amber-deep);
 }

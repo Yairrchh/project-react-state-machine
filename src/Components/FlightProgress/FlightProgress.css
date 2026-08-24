@@ -1,0 +1,89 @@
+.FlightProgress {
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    background-color: var(--color-paper-dim);
+    padding: 18px 20px 12px;
+    border-top: 2px dashed rgba(32, 23, 53, 0.18);
+    border-bottom: 2px dashed rgba(32, 23, 53, 0.18);
+}
+
+.FlightProgress-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.FlightProgress-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.FlightProgress-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid rgba(32, 23, 53, 0.35);
+    background-color: transparent;
+    box-sizing: border-box;
+}
+
+.FlightProgress-dot--filled {
+    background-color: var(--color-amber);
+    border-color: var(--color-amber-deep);
+}
+
+.FlightProgress-code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+}
+
+.FlightProgress-track {
+    position: relative;
+    flex: 1;
+    height: 2px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba(32, 23, 53, 0.25) 0,
+        rgba(32, 23, 53, 0.25) 4px,
+        transparent 4px,
+        transparent 9px
+    );
+}
+
+.FlightProgress-trackFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--color-amber);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.FlightProgress-plane {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    color: var(--color-amber-deep);
+    background-color: var(--color-paper-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.FlightProgress-label {
+    margin: 10px 0 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+}

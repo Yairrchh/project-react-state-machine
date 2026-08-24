@@ -1,84 +1,213 @@
 .Tickets {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.Tickets-finish {
-    --s: 150px;
-    --b: 3px;     /* the border thickness*/
-    --g: 5px;    /* the gap */
-    --c: #4ECDC4; /* the color */
-
-    font-family: Arial, Helvetica, sans-serif;
-    border: 0ch;
-    width: var(--s);
-    padding: 5px;
-    border-radius: 10px;
-    background-color: rgba(23, 168, 190, 0.8);
-    color: #000000;
-    font-size: 19px;
-    cursor: pointer;
-    transition: .3s;
+.Tickets-thanks {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--color-ink);
+    text-align: center;
+    margin: 0 0 20px;
 }
 
-.Tickets-finish:hover{
-    outline: var(--b) solid var(--c);
-    outline-offset: var(--g);
+.Boarding {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid rgba(32, 23, 53, 0.14);
+    margin-bottom: 22px;
+    box-shadow: 0 10px 24px rgba(32, 23, 53, 0.12);
 }
 
-
-.Tickets-ticket {
-display: grid;
-grid-template-columns: 1fr 5fr;
-margin-bottom: 16px;
+.Boarding-stamp {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    z-index: 2;
+    border: 2px solid var(--color-coral);
+    color: var(--color-coral);
+    background-color: rgba(251, 243, 227, 0.08);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transform: rotate(-10deg);
 }
 
-.Tickets-country {
-background-color: white;
-padding: 16px;
-border-top-right-radius: 8px;
-border-bottom-right-radius: 8px;
-border-top-left-radius: 4px;
-border-bottom-left-radius: 4px;
-font-weight: bold;
-text-transform: uppercase;
-font-size: 1.2rem;
-display: flex;
-justify-content: center;
-align-items: center;
-border-right: 1px dashed #4F54A7;
+@media (prefers-reduced-motion: no-preference) {
+    .Boarding-stamp {
+        animation: Boarding-stampIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        animation-delay: 0.15s;
+    }
 }
 
-.Tickets-passengers {
-background-color: rgba(151, 149, 240, 0.5);
-padding: 16px;
-border-top-right-radius: 4px;
-border-bottom-right-radius: 4px;
-border-top-left-radius: 8px;
-border-bottom-left-radius: 8px;
-font-weight: bold;
-display: flex;
-justify-content: center;
-flex-direction: column;
-position: relative;
-border-left: 1px dashed #4F54A7;
+@keyframes Boarding-stampIn {
+    0% { opacity: 0; transform: rotate(-10deg) scale(2.4); }
+    60% { opacity: 1; }
+    100% { opacity: 1; transform: rotate(-10deg) scale(1); }
 }
 
-.Tickets-passengers p {
+.Boarding-route {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2px;
+    gap: 18px;
+    background-color: var(--color-navy);
+    padding: 18px 20px 14px;
 }
 
-.Tickets-passengers p {
-    font-size: 15px;
-    color: #4F54A7;
+.Boarding-pnr {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: rgba(251, 243, 227, 0.5);
 }
 
-.li-ticket{
+.Boarding-routeNode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.Boarding-routeCode {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: 0.04em;
+    color: var(--color-paper);
+}
+
+.Boarding-routeLabel {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(251, 243, 227, 0.55);
+}
+
+.Boarding-routePlane {
+    display: flex;
+    color: var(--color-amber);
+    transform: rotate(90deg);
+}
+
+.Boarding-flightLine {
+    margin: 0;
+    padding: 10px 20px 14px;
+    background-color: var(--color-navy);
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: rgba(251, 243, 227, 0.7);
+}
+
+.Boarding-tear {
+    height: 12px;
+    background-color: var(--color-navy);
+    background-image:
+        linear-gradient(45deg, var(--color-paper-dim) 50%, transparent 50%),
+        linear-gradient(-45deg, var(--color-paper-dim) 50%, transparent 50%);
+    background-size: 16px 24px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+.Boarding-fields {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: start;
+    background-color: var(--color-paper-dim);
+    padding: 16px 20px;
+    border-bottom: 1.5px dashed rgba(32, 23, 53, 0.2);
+}
+
+.Boarding-fieldLabel {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    margin-bottom: 6px;
+}
+
+.Boarding-passengerList {
     list-style: none;
-    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.Boarding-passengerList li {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-ink);
+}
+
+.Boarding-field--right {
+    text-align: right;
+}
+
+.Boarding-fieldValue {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--color-ink);
+    white-space: nowrap;
+}
+
+.Boarding-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background-color: var(--color-paper-dim);
+}
+
+.Boarding-total span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+}
+
+.Boarding-total strong {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--color-amber-deep);
+}
+
+.Boarding-barcode {
+    height: 34px;
+    margin: 0 20px 18px;
+    background-color: var(--color-paper-dim);
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--color-ink) 0px, var(--color-ink) 2px,
+        transparent 2px, transparent 5px,
+        var(--color-ink) 5px, var(--color-ink) 8px,
+        transparent 8px, transparent 10px,
+        var(--color-ink) 10px, var(--color-ink) 11px,
+        transparent 11px, transparent 15px
+    );
+    opacity: 0.75;
 }
